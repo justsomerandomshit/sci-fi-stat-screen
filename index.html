@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale: 1.0">
   <title>Sci-Fi Stat Screen</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
@@ -155,6 +155,7 @@
       letter-spacing: 2px;
       color: var(--primary-color);
       text-shadow: 0 0 8px var(--primary-glow);
+      line-height: 1; /* Added line-height for text consistency */
     }
 
     .level-display {
@@ -171,6 +172,7 @@
       color: var(--primary-color);
       text-shadow: 0 0 10px var(--primary-glow);
       font-family: 'Orbitron', sans-serif;
+      line-height: 1; /* Added line-height for text consistency */
     }
 
     .character-info {
@@ -190,11 +192,13 @@
       text-transform: uppercase;
       opacity: 0.7;
       width: 50px;
+      line-height: 1; /* Added line-height for text consistency */
     }
 
     .info-value {
       font-size: 1.2rem;
       font-weight: 600;
+      line-height: 1; /* Added line-height for text consistency */
     }
 
     .resource-bars {
@@ -216,6 +220,7 @@
       font-size: 0.9rem;
       text-transform: uppercase;
       gap: 8px; /* Space between icon and text */
+      line-height: 1; /* Added line-height for text consistency */
     }
 
     .bar-label i {
@@ -291,6 +296,7 @@
       flex: 1;
       font-size: 1.1rem;
       font-weight: 600;
+      line-height: 1; /* Added line-height for text consistency */
     }
 
     .stat-value {
@@ -306,6 +312,7 @@
       color: var(--primary-color);
       text-shadow: 0 0 5px var(--primary-glow);
       box-shadow: 0 0 5px rgba(24, 232, 255, 0.3);
+      line-height: 1; /* Added line-height for text consistency */
     }
 
     .points-container {
@@ -325,6 +332,7 @@
       font-size: 1rem;
       text-transform: uppercase;
       opacity: 0.8;
+      line-height: 1; /* Added line-height for text consistency */
     }
 
     .points-value {
@@ -332,6 +340,7 @@
       font-weight: 700;
       color: var(--primary-color);
       text-shadow: 0 0 8px var(--primary-glow);
+      line-height: 1; /* Added line-height for text consistency */
     }
 
     .animate-pulse {
@@ -371,6 +380,27 @@
       color: var(--primary-color);
       text-shadow: 0 0 5px var(--primary-glow);
       text-align: center;
+      line-height: 1; /* Added line-height for text consistency */
+    }
+
+    .customize-section {
+      margin-bottom: 20px; /* Space between sections */
+    }
+
+    .customize-section:last-child {
+      margin-bottom: 0; /* No extra margin for the last section */
+    }
+
+    .section-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: var(--primary-color);
+      text-shadow: 0 0 5px var(--primary-glow);
+      text-align: left; /* Align section titles to the left */
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      line-height: 1; /* Added line-height for text consistency */
     }
 
     .form-row {
@@ -382,6 +412,8 @@
 
     .form-group {
       margin-bottom: 10px;
+      display: flex; /* Added flex to align label and input horizontally */
+      align-items: center; /* Vertically align items in form-group */
     }
 
     label {
@@ -390,6 +422,9 @@
       font-size: 0.9rem;
       opacity: 0.9;
       color: var(--primary-color);
+      margin-right: 10px; /* Added margin to separate label from input */
+      margin-bottom: 0; /* Reset bottom margin for label in flex layout */
+      line-height: 1; /* Added line-height for text consistency */
     }
 
     input, select {
@@ -400,9 +435,44 @@
       border-radius: 4px;
       color: var(--text-color);
       font-family: 'Rajdhani', sans-serif;
+      flex: 1; /* Input takes remaining space */
+      line-height: 1; /* Added line-height for text consistency */
     }
 
-    input:focus, select:focus {
+    input[type="color"] {
+      width: auto; /* Adjust width for color input */
+      height: 30px; /* Fixed height for color input */
+      -webkit-appearance: none; /* Remove default color input styles in Chrome */
+      -moz-appearance: none; /* Remove default color input styles in Firefox */
+      appearance: none; /* Remove default color input styles in other browsers */
+      padding: 0; /* Remove padding */
+      border: none; /* Remove default border */
+      cursor: pointer;
+      border: 1px solid var(--border-color); /* Add border back for consistent style */
+      border-radius: 4px; /* Match border-radius */
+      margin-right: 10px; /* Space between color input and preview */
+    }
+
+    input[type="color"]::-webkit-color-swatch-wrapper {
+      padding: 2px; /* Adjust swatch wrapper padding */
+    }
+
+    input[type="color"]::-webkit-color-swatch {
+      border: none; /* Remove border from color swatch */
+      border-radius: 2px; /* Slightly smaller radius for swatch */
+    }
+
+    .color-preview {
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      vertical-align: middle; /* Align with color input */
+    }
+
+
+    input:focus, select:focus, input[type="color"]:focus { /* Include color input in focus style */
       outline: none;
       box-shadow: 0 0 10px var(--primary-glow);
       border-color: var(--primary-color);
@@ -429,6 +499,7 @@
       text-transform: uppercase;
       letter-spacing: 1px;
       box-shadow: 0 0 5px rgba(24, 232, 255, 0.3);
+      line-height: 1; /* Added line-height for text consistency */
     }
 
     .custom-button:hover {
@@ -599,96 +670,134 @@
   <div class="customize-panel hidden" id="customize-panel">
     <div class="customize-title">CUSTOMIZE YOUR CHARACTER</div>
 
-    <div class="form-row">
-      <div class="form-group">
-        <label for="input-level">Level:</label>
-        <input type="number" id="input-level" value="0" min="0">
-      </div>
-      <div class="form-group">
-        <label for="input-name">Name:</label> <!-- ADDED NAME INPUT -->
-        <input type="text" id="input-name" value="n/a">
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="form-group">
-        <label for="input-job">Job:</label>
-        <input type="text" id="input-job" value="None">
-      </div>
-      <div class="form-group">
-        <label for="input-title">Title:</label>
-        <input type="text" id="input-title" value="None">
-      </div>
-    </div>
-
-
-    <div class="form-row">
-      <div class="form-group">
-        <label for="input-current-hp">Current HP:</label>
-        <input type="number" id="input-current-hp" value="0" min="0">
-      </div>
-      <div class="form-group">
-        <label for="input-max-hp">Max HP:</label>
-        <input type="number" id="input-max-hp" value="0" min="0">
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="form-group">
-        <label for="input-current-mp">Current MP:</label>
-        <input type="number" id="input-current-mp" value="0" min="0">
-      </div>
-      <div class="form-group">
-        <label for="input-max-mp">Max MP:</label>
-        <input type="number" id="input-max-mp" value="0" min="0">
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="form-group">
-        <label for="input-str">STR:</label>
-        <input type="number" id="input-str" value="0" min="0">
-      </div>
-      <div class="form-group">
-        <label for="input-vit">VIT:</label>
-        <input type="number" id="input-vit" value="0" min="0">
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="form-group">
-        <label for="input-agi">AGI:</label>
-        <input type="number" id="input-agi" value="0" min="0">
-      </div>
-      <div class="form-group">
-        <label for="input-int">INT:</label>
-        <input type="number" id="input-int" value="0" min="0">
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="form-group">
-        <label for="input-per">PER:</label>
-        <input type="number" id="input-per" value="0" min="0">
-      </div>
-      <div class="form-group">
-        <label for="input-points">Available Points:</label>
-        <input type="number" id="input-points" value="0" min="0">
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="form-group">
-        <label for="input-fatigue">Fatigue:</label>
-        <input type="number" id="input-fatigue" value="0" min="0" max="100">
-      </div>
+    <!-- Character Information Section -->
+    <div class="customize-section">
+      <h3 class="section-title">Character Information</h3>
+      <div class="form-row">
         <div class="form-group">
-          </div>
+          <label for="input-level">Level:</label>
+          <input type="number" id="input-level" value="0" min="0">
+        </div>
+        <div class="form-group">
+          <label for="input-name">Name:</label>
+          <input type="text" id="input-name" value="n/a">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="input-job">Job:</label>
+          <input type="text" id="input-job" value="None">
+        </div>
+        <div class="form-group">
+          <label for="input-title">Title:</label>
+          <input type="text" id="input-title" value="None">
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div> <!-- Divider after Character Info -->
+
+    <!-- Appearance Section -->
+    <div class="customize-section">
+      <h3 class="section-title">Appearance</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="input-primary-color">Primary Color:</label>
+          <input type="color" id="input-primary-color" value="#18e8ff"> <span class="color-preview" id="preview-primary-color"></span>
+        </div>
+        <div class="form-group">
+          <label for="input-primary-glow">Primary Glow:</label>
+          <input type="color" id="input-primary-glow" value="#18e8ff"> <span class="color-preview" id="preview-primary-glow"></span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="input-secondary-color">Secondary Color:</label>
+          <input type="color" id="input-secondary-color" value="#0077b6"> <span class="color-preview" id="preview-secondary-color"></span>
+        </div>
+        <div class="form-group">
+          <label for="input-border-color">Border Color:</label>
+          <input type="color" id="input-border-color" value="rgba(24, 232, 255, 0.7)"> <span class="color-preview" id="preview-border-color"></span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="input-text-color">Text Color:</label>
+          <input type="color" id="input-text-color" value="#ffffff"> <span class="color-preview" id="preview-text-color"></span>
+        </div>
+        <div class="form-group">
+          <label for="auto-adjust-colors">Auto-Adjust Colors:</label>
+          <input type="checkbox" id="auto-adjust-colors" checked>
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div> <!-- Divider after Appearance -->
+
+    <!-- Stats Section -->
+    <div class="customize-section">
+      <h3 class="section-title">Stats</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="input-current-hp">Current HP:</label>
+          <input type="number" id="input-current-hp" value="0" min="0">
+        </div>
+        <div class="form-group">
+          <label for="input-max-hp">Max HP:</label>
+          <input type="number" id="input-max-hp" value="0" min="0">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="input-current-mp">Current MP:</label>
+          <input type="number" id="input-current-mp" value="0" min="0">
+        </div>
+        <div class="form-group">
+          <label for="input-max-mp">Max MP:</label>
+          <input type="number" id="input-max-mp" value="0" min="0">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="input-fatigue">Fatigue:</label>
+          <input type="number" id="input-fatigue" value="0" min="0" max="100">
+        </div>
+        <div class="form-group">
+          </div> <!-- Empty div to keep layout in 2 columns -->
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="input-str">STR:</label>
+          <input type="number" id="input-str" value="0" min="0">
+        </div>
+        <div class="form-group">
+          <label for="input-vit">VIT:</label>
+          <input type="number" id="input-vit" value="0" min="0">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="input-agi">AGI:</label>
+          <input type="number" id="input-agi" value="0" min="0">
+        </div>
+        <div class="form-group">
+          <label for="input-int">INT:</label>
+          <input type="number" id="input-int" value="0" min="0">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="input-per">PER:</label>
+          <input type="number" id="input-per" value="0" min="0">
+        </div>
+        <div class="form-group">
+          <label for="input-points">Available Points:</label>
+          <input type="number" id="input-points" value="0" min="0">
+        </div>
+      </div>
     </div>
 
     <div class="button-row">
       <button class="custom-button" id="cancel-customize">Cancel</button>
-      <button class="custom-button reset-button" id="reset-customize">Reset</button> <!-- ADD RESET BUTTON -->
+      <button class="custom-button reset-button" id="reset-customize">Reset</button>
       <button class="custom-button save-button" id="save-customize">Save Changes</button>
     </div>
   </div>
@@ -704,10 +813,33 @@
       const customizePanel = document.getElementById('customize-panel');
       const saveCustomize = document.getElementById('save-customize');
       const cancelCustomize = document.getElementById('cancel-customize');
-      const resetButton = document.getElementById('reset-customize'); // ADDED RESET BUTTON
+      const resetButton = document.getElementById('reset-customize');
       const exportButton = document.getElementById('export-image');
       const notification = document.getElementById('notification');
       const loadingSpinner = document.getElementById('loading-spinner');
+      const autoAdjustColorsCheckbox = document.getElementById('auto-adjust-colors');
+
+      // Color Input Elements
+      const inputPrimaryColor = document.getElementById('input-primary-color');
+      const inputPrimaryGlow = document.getElementById('input-primary-glow');
+      const inputSecondaryColor = document.getElementById('input-secondary-color');
+      const inputBorderColor = document.getElementById('input-border-color');
+      const inputTextColor = document.getElementById('input-text-color');
+
+      // Color Preview Elements
+      const previewPrimaryColor = document.getElementById('preview-primary-color');
+      const previewPrimaryGlow = document.getElementById('preview-primary-glow');
+      const previewSecondaryColor = document.getElementById('preview-secondary-color');
+      const previewBorderColor = document.getElementById('preview-border-color');
+      const previewTextColor = document.getElementById('preview-text-color');
+      const colorPreviewElements = { // Group previews for easier access
+        'primaryColor': previewPrimaryColor,
+        'primaryGlow': previewPrimaryGlow,
+        'secondaryColor': previewSecondaryColor,
+        'borderColor': previewBorderColor,
+        'textColor': previewTextColor
+      };
+
 
       // Toggle customize panel
       toggleCustomize.addEventListener('click', function() {
@@ -721,16 +853,21 @@
 
       // Reset customization
       resetButton.addEventListener('click', function() {
-        resetFormValues(); // Reset form values to defaults
-        saveDataToLocalStorage(); // Save default data to local storage
-        updateDisplayValues(); // Update display with default values
-        showNotification('Stats reset to default!'); // Show notification
+        resetFormValues();
+        resetColorFormValues();
+        saveDataToLocalStorage();
+        saveColorDataToLocalStorage();
+        updateDisplayValues();
+        updateColorVariables();
+        showNotification('Stats reset to default!');
       });
 
       // Save changes
       saveCustomize.addEventListener('click', function() {
-        saveDataToLocalStorage(); // Save data to local storage
-        updateDisplayValues(); // Update display with form values
+        saveDataToLocalStorage();
+        saveColorDataToLocalStorage();
+        updateDisplayValues();
+        updateColorVariables();
 
         // Show notification
         showNotification('Changes saved successfully!');
@@ -751,7 +888,10 @@
           scale: 2,
           backgroundColor: null,
           logging: false,
-          useCORS: true
+          useCORS: true,
+          // Add or adjust these options if needed:
+          // foreignObjectRendering: true, // Try this if you have complex SVG or foreign objects
+          // imageTimeout: 15000,         // Increase timeout for loading images if any
         };
 
         html2canvas(statScreen, options).then(function(canvas) {
@@ -822,6 +962,16 @@
         localStorage.setItem('fatigue', document.getElementById('input-fatigue').value);
       }
 
+      // Function to save color data to local storage
+      function saveColorDataToLocalStorage() {
+        localStorage.setItem('primaryColor', inputPrimaryColor.value);
+        localStorage.setItem('primaryGlow', inputPrimaryGlow.value);
+        localStorage.setItem('secondaryColor', inputSecondaryColor.value);
+        localStorage.setItem('borderColor', inputBorderColor.value);
+        localStorage.setItem('textColor', inputTextColor.value);
+        localStorage.setItem('autoAdjustColors', autoAdjustColorsCheckbox.checked); // Save checkbox state
+      }
+
       // Function to load data from local storage and update form and display
       function loadDataFromLocalStorage() {
         document.getElementById('input-level').value = localStorage.getItem('level') || 0;
@@ -840,7 +990,24 @@
         document.getElementById('input-points').value = localStorage.getItem('points') || 0;
         document.getElementById('input-fatigue').value = localStorage.getItem('fatigue') || 0;
 
-        updateDisplayValues(); // Update display after loading from local storage
+        loadColorDataFromLocalStorage();
+        updateDisplayValues();
+      }
+
+      // Function to load color data from local storage
+      function loadColorDataFromLocalStorage() {
+        inputPrimaryColor.value = localStorage.getItem('primaryColor') || '#18e8ff';
+        inputPrimaryGlow.value = localStorage.getItem('primaryGlow') || '#18e8ff';
+        inputSecondaryColor.value = localStorage.getItem('secondaryColor') || '#0077b6';
+        inputBorderColor.value = localStorage.getItem('borderColor') || 'rgba(24, 232, 255, 0.7)';
+        inputTextColor.value = localStorage.getItem('textColor') || '#ffffff';
+        autoAdjustColorsCheckbox.checked = localStorage.getItem('autoAdjustColors') === 'true' ? true : (localStorage.getItem('autoAdjustColors') === null ? true : false); // Default to true if not in localStorage
+
+        updateColorVariables();
+
+        if (autoAdjustColorsCheckbox.checked) { // Apply auto-adjust on initial load if checked
+          autoAdjustColors(inputPrimaryColor.value);
+        }
       }
 
       // Function to update display values from form inputs
@@ -866,8 +1033,124 @@
         document.getElementById('points-value').textContent = document.getElementById('input-points').value;
         document.getElementById('fatigue-value').textContent = document.getElementById('input-fatigue').value;
 
-        updateBars(); // Update bars after updating display values
+        updateBars();
       }
+
+      // Function to update CSS variables and color previews
+      function updateColorVariables() {
+        const primaryColorValue = inputPrimaryColor.value;
+        document.documentElement.style.setProperty('--primary-color', primaryColorValue);
+        colorPreviewElements['primaryColor'].style.backgroundColor = primaryColorValue;
+
+        document.documentElement.style.setProperty('--primary-glow', inputPrimaryGlow.value);
+        colorPreviewElements['primaryGlow'].style.backgroundColor = inputPrimaryGlow.value;
+
+        document.documentElement.style.setProperty('--secondary-color', inputSecondaryColor.value);
+        colorPreviewElements['secondaryColor'].style.backgroundColor = inputSecondaryColor.value;
+
+        document.documentElement.style.setProperty('--border-color', inputBorderColor.value);
+        colorPreviewElements['borderColor'].style.backgroundColor = inputBorderColor.value;
+
+        document.documentElement.style.setProperty('--text-color', inputTextColor.value);
+        colorPreviewElements['textColor'].style.backgroundColor = inputTextColor.value;
+
+        if (autoAdjustColorsCheckbox.checked) {
+          autoAdjustColors(primaryColorValue); // Auto-adjust colors if checkbox is checked
+        }
+      }
+
+      // Function to auto-adjust other colors based on primary color
+      function autoAdjustColors(primaryColor) {
+        // Convert hex to HSL for easier manipulation
+        let hsl = hexToHsl(primaryColor);
+        if (!hsl) return; // Exit if conversion fails
+
+        // Adjust hue slightly for glow and secondary (example - you can refine these)
+        let glowHsl = {...hsl};
+        glowHsl.l = Math.min(100, hsl.l + 10); // Slightly brighter glow
+        inputPrimaryGlow.value = hslToHex(glowHsl);
+
+        let secondaryHsl = {...hsl};
+        secondaryHsl.s = Math.max(0, hsl.s - 15); // Slightly less saturated secondary
+        secondaryHsl.l = Math.max(0, hsl.l - 10); // Slightly darker secondary
+        inputSecondaryColor.value = hslToHex(secondaryHsl);
+
+        // Border color - slightly transparent version of primary
+        inputBorderColor.value = hexToRgba(primaryColor, 0.7);
+
+        updateColorVariables(); // Re-apply colors to previews and CSS vars
+      }
+
+      // Event listener for auto-adjust checkbox
+      autoAdjustColorsCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+          autoAdjustColors(inputPrimaryColor.value); // Auto-adjust immediately if checked
+        }
+      });
+
+      // Function to convert hex to HSL
+      function hexToHsl(hex) {
+        hex = hex.replace(/^#/, '');
+        let r = parseInt(hex.substring(0, 2), 16) / 255;
+        let g = parseInt(hex.substring(2, 4), 16) / 255;
+        let b = parseInt(hex.substring(4, 6), 16) / 255;
+
+        let max = Math.max(r, g, b), min = Math.min(r, g, b);
+        let h, s, l = (max + min) / 2;
+
+        if (max == min) {
+          h = s = 0; // achromatic
+        } else {
+          let d = max - min;
+          s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+          switch (max) {
+            case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+            case g: h = (b - r) / d + 2; break;
+            case b: h = (r - g) / d + 4; break;
+          }
+          h /= 6;
+        }
+
+        return { h: h * 360, s: s * 100, l: l * 100 }; // Return HSL as object
+      }
+
+      // Function to convert HSL to hex
+      function hslToHex(hsl) {
+        let h = hsl.h / 360, s = hsl.s / 100, l = hsl.l / 100;
+        let r, g, b;
+
+        if (s == 0) {
+          r = g = b = l; // achromatic
+        } else {
+          const hue2rgb = (p, q, t) => {
+            if (t < 0) t += 1;
+            if (t > 1) t -= 1;
+            if (t < 1/6) return p + (q - p) * 6 * t;
+            if (t < 1/2) return q;
+            if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+            return p;
+          };
+
+          let q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+          let p = 2 * l - q;
+          r = hue2rgb(p, q, h + 1/3);
+          g = hue2rgb(p, q, h);
+          b = hue2rgb(p, q, h - 1/3);
+        }
+
+        return "#" + [r, g, b].map(x => Math.round(x * 255).toString(16).padStart(2, '0')).join('');
+      }
+
+      // Function to convert hex to rgba
+      function hexToRgba(hex, alpha) {
+          hex = hex.replace(/^#/, '');
+          let r = parseInt(hex.substring(0, 2), 16);
+          let g = parseInt(hex.substring(2, 4), 16);
+          let b = parseInt(hex.substring(4, 6), 16);
+
+          return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+      }
+
 
       // Function to reset form values to default
       function resetFormValues() {
@@ -888,6 +1171,24 @@
         document.getElementById('input-fatigue').value = '0';
       }
 
+      // Function to reset color form values to default
+      function resetColorFormValues() {
+        inputPrimaryColor.value = '#18e8ff';
+        inputPrimaryGlow.value = '#18e8ff';
+        inputSecondaryColor.value = '#0077b6';
+        inputBorderColor.value = 'rgba(24, 232, 255, 0.7)';
+        inputTextColor.value = '#ffffff';
+        autoAdjustColorsCheckbox.checked = true; // Reset to checked as default
+      }
+
+
+      // Event listeners for color inputs
+      inputPrimaryColor.addEventListener('input', updateColorVariables);
+      inputPrimaryGlow.addEventListener('input', updateColorVariables);
+      inputSecondaryColor.addEventListener('input', updateColorVariables);
+      inputBorderColor.addEventListener('input', updateColorVariables);
+      inputTextColor.addEventListener('input', updateColorVariables);
+
 
       function showNotification(message, isError = false) {
         notification.textContent = message;
@@ -896,11 +1197,11 @@
 
         setTimeout(() => {
           notification.classList.remove('show');
-        }, 3000); // Notification disappears after 3 seconds
+        }, 3000);
       }
 
-      loadDataFromLocalStorage(); // Load data from local storage on page load
-      updateBars(); // Initial update of bars based on loaded data
+      loadDataFromLocalStorage();
+      updateBars();
     });
   </script>
 </body>
